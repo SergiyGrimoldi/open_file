@@ -1,0 +1,1 @@
+Questa è la nuova riga del file1; voglio provare anche l'a capo
