@@ -26,6 +26,8 @@ def login_main(): # Finestra di login
 
     login.resizable(False,False)
 
+
+
     def next():
         
         def login_file(): # cronologia utenti in file - login.txt
@@ -95,8 +97,16 @@ def main_window(): # Finestra Editor TXT
     main_window.resizable(False, False)
 
 
-    Text_box = scrolledtext.ScrolledText(main_window,width=124,height=40)
-    Text_box.place(x=10, y=40)
+    rows = 0
+    while rows < 10:
+        main_window.rowconfigure(rows, weight=1)
+        main_window.columnconfigure(rows, weight=1)
+        rows+=1
+
+
+
+    Text_box = scrolledtext.ScrolledText(main_window)
+    Text_box.grid(row=4,column=2)
 
 
     ######### Inizializzazione StatusBar #########
@@ -104,7 +114,7 @@ def main_window(): # Finestra Editor TXT
     statusbar = StringVar()
     statusbar.set("Benvenuto")
     sbar = Label(main_window, textvariable=statusbar, relief=SUNKEN, anchor="w")
-    sbar.pack(side=BOTTOM, fill=X)
+    sbar.grid(row=20, column=0,sticky=tk.S)
 
     
     def bar_salvato():
@@ -149,7 +159,7 @@ def main_window(): # Finestra Editor TXT
             bar_aperto()
         ## pulsante ##
         open_button = tk.Button(main_window, text="Apri vecchio file", command=old_file)
-        open_button.place(x=10, y=15)
+        open_button.grid(row=0,column=0, sticky=tk.NW, pady=5, padx=5)
         ## pulsante ##
         #### apri file ####
 
@@ -168,7 +178,7 @@ def main_window(): # Finestra Editor TXT
             bar_creato()
         ## pulsante ##
         create_button = tk.Button(main_window, text="Crea nuovo file",command=create)
-        create_button.place(x=120, y=15)
+        create_button.grid(row=0,column=1, sticky=tk.NW, pady=5, padx=5)
         ## pulsante ##
         #### crea file ####
 
@@ -182,7 +192,7 @@ def main_window(): # Finestra Editor TXT
             bar_salvato()
         ## pulsante ##
         save_button = tk.Button(main_window, text="Salva file", command=save_file)
-        save_button.place(x=222, y=15)
+        save_button.grid(row=0,column=2, sticky=tk.NW, pady=5, padx=5)
         ## pulsante ##
         #### salva file ####
 
@@ -199,7 +209,7 @@ def main_window(): # Finestra Editor TXT
             bar_creato()
         ## pulsante ##
         save_as_button = tk.Button(main_window, text="Salva con nome",command=save_file_as)
-        save_as_button.place(x=290,y=15)
+        save_as_button.grid(row=0,column=3, sticky=tk.NW, pady=5, padx=5)
         ## pulsante ##
         #### salva con nome ####
 
@@ -208,7 +218,7 @@ def main_window(): # Finestra Editor TXT
             main_window.destroy()
         ## pulsante ##
         close_button = tk.Button(main_window, text="Esci", command=close_main_window)
-        close_button.place(x=850, y=15)
+        close_button.grid(row=0,column=4, sticky=tk.NE, pady=5, padx=5)
         ## pulsante ##
         #### esci ####
 
