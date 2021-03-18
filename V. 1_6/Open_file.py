@@ -14,7 +14,7 @@ from tkinter import ttk
 def text():
     
     #############################   file utenti    ###########################################
-   
+
     login_list = []
 
 
@@ -146,7 +146,7 @@ def text():
     button5.pack(side=tk.LEFT, padx=150)
 
 
-        #pulsanti right
+            #pulsanti right
         #Save_file_as
     button2 = tk.Button(app, text="Salva con nome", command=save_file_as)
     button2.pack(side=tk.RIGHT, padx=5)
